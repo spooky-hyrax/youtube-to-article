@@ -1,9 +1,10 @@
 import anthropic
+import os
 
 with open("VKfE5BuqlSc.en.vtt", "r") as f:
     transcript = f.read()
 
-client = anthropic.Anthropic(api_key="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")
+client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
 message = client.messages.create(
     model="claude-opus-4-5",
